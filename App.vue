@@ -1,9 +1,16 @@
 <script>
+	import store from '@/store/index.js'
 	export default {
 		onLaunch: function() {
 			//应用启动，等登陆中获取用户Id
+			if(!store.state.userInfo._id){
+				uni.redirectTo({
+				    url: '/pages/login/login'
+				});
+				return
+			}
 			this.$api.get_user({
-				user_id: '5f6ae4f64f4570000172af13'
+				user_id: store.state.userInfo._id
 			}).then((res) => {
 				const {
 					data

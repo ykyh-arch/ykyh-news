@@ -129,10 +129,10 @@
 				uni.showModal({
 					title: '提示',
 					content: '确定要登出系统吗？',
-					success: function (res) {
+					success: (res)=> {
 						if (res.confirm) {
 							//登出系统，重定向
-							//this.$store.dispatch('clear_userInfo')
+							this.$store.dispatch('clear_userInfo')
 							uni.redirectTo({
 							    url: '/pages/login/login'
 							});
