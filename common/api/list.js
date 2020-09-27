@@ -110,4 +110,11 @@ export const update_user = (data) => {
 	})
 }
 
+export const login_user = (data) => {
+	return $http({
+		url: 'login_user',
+		data
+	})
+}
+
 

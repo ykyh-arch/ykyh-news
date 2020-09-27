@@ -41,6 +41,10 @@
 				<uni-icons type="arrowright" size="14" color="#666"></uni-icons>
 			</view>
 		</view>
+		<!-- 按钮 -->
+		<view class="my-login">
+			<button class="feedback-btn" @click="submit">退出登录</button>
+		</view>
 	</view>
 </template>
 
@@ -120,6 +124,21 @@
 			},
 			generateID(length) {
 				return Number(Math.random().toString().substr(3, length) + Date.now())
+			},
+			submit(){
+				uni.showModal({
+					title: '提示',
+					content: '确定要登出系统吗？',
+					success: function (res) {
+						if (res.confirm) {
+							//登出系统，重定向
+							//this.$store.dispatch('clear_userInfo')
+							uni.redirectTo({
+							    url: '/pages/login/login'
+							});
+						} 
+					    }
+				})
 			}
 		}
 	}
@@ -201,6 +220,13 @@
 				}
 				
 			}
+		}
+	}
+	.my-login{
+		.feedback-btn{
+			margin: 15px;
+			background-color: $mk-base-color;
+			color: #F5F5F5;
 		}
 	}
 </style>

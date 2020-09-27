@@ -26,7 +26,7 @@
 			    <progress :percent="percent" stroke-width="10"  border-radius="50"/>
 			</view>
 			<!-- 按钮 -->
-			<button class="feedback-btn" @click="submit">提交反馈按钮</button>
+			<button class="feedback-btn" @click="submit">提交反馈</button>
 		</view>
 	</view>
 </template>

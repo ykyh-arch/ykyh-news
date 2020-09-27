@@ -5,17 +5,17 @@
 			"style": {
 				"navigationStyle": "custom",
 				"navigationBarTextStyle": "white",
-				"navigationBarTitleText": "资讯"
+				"navigationBarTitleText": "资讯新闻"
 			}
 		}, {
 			"path": "pages/tabbar/follow/follow",
 			"style": {
-				"navigationBarTitleText": "关注"
+				"navigationBarTitleText": "关注中心"
 			}
 		}, {
 			"path": "pages/tabbar/my/my",
 			"style": {
-				"navigationBarTitleText": "我的"
+				"navigationBarTitleText": "个人中心"
 			}
 		}, {
 			"path": "pages/home-search/home-search",
@@ -52,11 +52,17 @@
             "style" : {
 				"navigationBarTitleText": "意见反馈"
 			}
-        }
+        },
+		{
+		    "path" : "pages/login/login",
+		    "style" : {
+				"navigationBarTitleText": "登录"
+			}
+		}
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "每日资讯",
+		"navigationBarTitleText": "资讯",
 		"navigationBarBackgroundColor": "#F07373",
 		"backgroundColor": "#F8F8F8"
 	},
