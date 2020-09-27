@@ -6,7 +6,7 @@
 			</view>
 			<view class="my-header-logo">
 				<view class="my-header-logo_box">
-					<image :src="userInfo.avatar" mode="aspectFill"></image>
+					<image :src="userInfo.avatar" mode="aspectFill" @click="upateAvatar"></image>
 				</view>
 				<text class="my-header-name">{{userInfo.author_name}}</text>
 			</view>
@@ -49,11 +49,17 @@
 	export default {
 		data() {
 			return {
-				
+				avatar: ''
 			}
 		},
 		computed:{
 			...mapState(['userInfo'])
+		},
+		watch:{
+			avatar(newVal){
+				uni.hideLoading()
+				this.update_avatar(newVal)
+			}
 		},
 		onLoad() {
 		},
@@ -67,6 +73,53 @@
 				uni.navigateTo({
 					url: '/pages/feedback/feedback'
 				})
+			},
+			upateAvatar(){
+				uni.chooseImage({
+					count:1,
+					success:(res)=>{
+						uni.showLoading({
+							title: '图片上传中'
+						})
+						const {
+							tempFilePaths
+						}= res
+					this.unloadFile(tempFilePaths[0])
+					}
+				})
+			},
+			update_avatar(avatar){
+				let user = this.userInfo
+				user.avatar = avatar
+				this.$api.update_user(user).then((res) => {
+					uni.showToast({
+						 title: '头像修改成功',
+						 duration: 2000
+					})
+					setTimeout(()=>{
+						this.userInfo.avatar = avatar
+					},500)
+				}).catch(()=>{
+					uni.hideLoading()
+					uni.showToast({
+						 title: '头像修改失败',
+						 icon : 'none'
+					})
+				})
+			},
+			async unloadFile(filePath){
+				await uniCloud.uploadFile({
+					filePath: filePath,
+					cloudPath: this.generateID(5)+'.jpg',
+					success:(e)=>{
+						this.avatar = e.fileID
+					},
+					fail() {},
+					complete() {}
+				});
+			},
+			generateID(length) {
+				return Number(Math.random().toString().substr(3, length) + Date.now())
 			}
 		}
 	}

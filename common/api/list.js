@@ -103,4 +103,11 @@ export const update_feedback = (data) => {
 	})
 }
 
+export const update_user = (data) => {
+	return $http({
+		url: 'update_user',
+		data
+	})
+}
+
 

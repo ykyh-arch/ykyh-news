@@ -1,0 +1,37 @@
+// 本文件中的json内容将在云函数【运行】时作为参数传给云函数。
+// 配置教程参考：https://uniapp.dcloud.net.cn/uniCloud/quickstart?id=runparam
+{
+  "article_ids": [
+    "302042",
+    "301911"
+  ],
+  
+  "_id": "5f6ae4f64f4570000172af13",
+  "article_likes_ids": [
+    "5f6ae4f3639ca400019db3af",
+    "5f6ae4f3639ca400019db3ad"
+  ],
+  "author_likes_ids": [
+    "8010388"
+  ],
+  "author_name": "Java架构师讲师团",
+  "avatar": "//img2.sycdn.imooc.com/5dafce1a00013fd501400140-160-160.jpg",
+  "explain": "架构师成长沟通群878622640，欢迎加入~",
+  "fans_count": 0,
+  "follow_count": 0,
+  "gender": "男",
+  "id": "8010388",
+  "integral_count": "",
+  "professional": "架构师",
+  "status": "normal",
+  "thumbs_up_article_ids": [
+    "5f6ae4f3639ca400019db3b3",
+    "5f6ae4f3639ca400019db3ad",
+    "5f6ae4f3639ca400019db3b1"
+  ],
+  "label_ids": [
+    "5f6ae4f5a18ab300019401ed",
+    "5f6ae4f5a18ab300019401ee",
+    "5f6ae4f5a18ab300019401ef"
+  ]
+}

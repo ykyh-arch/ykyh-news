@@ -78,7 +78,8 @@
     "h5" : {
         "title" : "新闻资讯",
         "router" : {
-            "mode" : "history"
+            "mode" : "history",
+            "base" : "/ykyh-news/"
         },
         "optimization" : {
             "treeShaking" : {
