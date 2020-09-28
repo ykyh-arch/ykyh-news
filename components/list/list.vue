@@ -44,11 +44,6 @@
 		},
 		// onLoad 在页面 ，created 组件
 		created() {
-			uni.$on('initApp',()=>{
-				this.listCatchData = {}
-				this.load = {}
-				this.getList(this.activeIndex)
-			})
 			// TODO tab 还没有赋值
 			// this.getList(0)
 			uni.$on('update_article',(e)=>{

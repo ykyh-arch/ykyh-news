@@ -30,6 +30,11 @@
 				this.getLabel()
 			}
 		},
+		//点击 tab 时触发
+		onTabItemTap() {
+			this.activeIndex = 0
+			this.change(this.activeIndex)
+		},
 		onLoad() {
 			uni.$on('labelChange',(res)=>{
 				this.tabList = []
@@ -45,22 +50,15 @@
 				this.activeIndex = current
 			},
 			tab({data,index}){
-				console.log(data,index);
+				// console.log(data,index);
 				this.activeIndex = index
 			},
 			getLabel() {
 				// 调用云函数方法
 				this.$api.get_label().then((res) => {
 					const {
-						data,
-						code
+						data
 					} = res
-					if(code === 400){
-						uni.redirectTo({
-							url: '/pages/login/login'
-						})
-						return
-					}
 					// console.log('标签 ',data);
 					data.unshift({
 						name:'全部'

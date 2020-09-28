@@ -46,15 +46,12 @@
 			})
 			this.getFollow()
 			this.getAuthor()
-			uni.$on('initApp',()=>{
-				this.getFollow()
-				this.getAuthor()
-			})
 		},
 		//点击 tab 时触发
-		// onTabItemTap() {
-		// 	this.getFollow()
-		// },
+		onTabItemTap() {
+			this.getFollow()
+			this.getAuthor()
+		},
 		methods: {
 			tab(index){
 				this.activeIndex=index

@@ -74,8 +74,6 @@
 						 duration: 2000
 					})
 					setTimeout(()=>{
-						//刷新tabbar
-						uni.$emit('initApp')
 						//跳转首页
 						uni.switchTab({
 							url: '/pages/tabbar/my/my'
