@@ -1,6 +1,9 @@
 <template>
 	<view>
 		<view class="my-content">
+			<view class="my-content-logo-backgroud">
+				<image src="@/static/logo.png" mode="aspectFill"></image>
+			</view>
 			<view class="my-content-logo">
 				<view class="my-content-logo_box">
 					<image src="@/static/logo.png" mode="aspectFill"></image>
@@ -92,9 +95,25 @@
 </script>
 
 <style lang="scss">
+	page{
+		background-color: #F5F5F5;
+	}
 	.my-content{
 		padding: 18px;
-		position: relative;
+		//position: relative;
+		.my-content-logo-backgroud{
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			filter: blur(8px);
+			opacity: 0.3;
+			image{
+				width: 100%;
+				height: 100%;
+			}
+		}
 		.my-content-logo{
 			display: flex;
 			flex-direction: column;

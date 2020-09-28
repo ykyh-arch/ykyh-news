@@ -5,7 +5,12 @@ exports.main = async (event, context) => {
 	const {
 		user_id,
 	} = event
-
+	if(!user_id){
+		return {
+			code: 400,
+			msg: '获取数据失败'
+		}
+	}
 	let userinfo = await db.collection('user').doc(user_id).get()
 	userinfo = userinfo.data[0]
 	const lists = await db.collection('user')
