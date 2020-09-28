@@ -52,9 +52,16 @@
 				// 调用云函数方法
 				this.$api.get_label().then((res) => {
 					const {
-						data
+						data,
+						code
 					} = res
-					console.log('标签 ',data);
+					if(code === 400){
+						uni.redirectTo({
+							url: '/pages/login/login'
+						})
+						return
+					}
+					// console.log('标签 ',data);
 					data.unshift({
 						name:'全部'
 					})

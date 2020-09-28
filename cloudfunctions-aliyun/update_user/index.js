@@ -25,7 +25,7 @@ exports.main = async (event, context) => {
 	let {_id,...data} = event
 	if(!event){
 		return {
-			code: 200,
+			code: 400,
 			msg: '更新失败'
 		}
 	}

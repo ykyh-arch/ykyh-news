@@ -25,6 +25,7 @@
 </template>
 
 <script>
+	import {mapActions} from 'vuex' 
 	export default {
 		data() {
 			return {
@@ -33,6 +34,7 @@
 			}
 		},
 		methods: {
+			...mapActions(['set_userInfo']),
 			submit(){
 				if(!this.username){
 					uni.showToast({
@@ -61,12 +63,19 @@
 					const {
 						data
 					} = res
-					this.$store.dispatch('set_userInfo',data)
+					//交给mutations去执行
+					//this.$store.commit('SET_USERINFO',data)
+					//交给actions去执行
+					//this.$store.dispatch('set_userInfo',data)
+					//或
+					this.set_userInfo(data)
 					uni.showToast({
 						 title: '登录成功',
 						 duration: 2000
 					})
 					setTimeout(()=>{
+						//刷新tabbar
+						uni.$emit('initApp')
 						//跳转首页
 						uni.switchTab({
 							url: '/pages/tabbar/my/my'

@@ -7,6 +7,12 @@ exports.main = async (event, context) => {
 		user_id,
 		type
 	} = event
+	if(!user_id){
+		return { 
+		code: 400,
+		msg: '数据请求失败',
+		}
+	}
 	let matchObj = {}
 	if (type !== 'all') {
 		matchObj = {

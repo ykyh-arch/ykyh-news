@@ -6,7 +6,7 @@ exports.main = async (event, context) => {
 	} = event
 	if(!user_id){
 		return {
-			code: 200,
+			code: 400,
 			msg: '获取数据失败',
 			data: null
 		}
